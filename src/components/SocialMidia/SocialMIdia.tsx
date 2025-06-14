@@ -12,7 +12,7 @@ const SocialMediaSection: React.FC = () => {
     >
       <div className="max-w-4xl mx-auto text-center">
         <img
-          src="/public/assets/logo.jpeg" // Replace with your perfume logo
+          src="/assets/logo.jpeg" // Replace with your perfume logo
           alt="Perfumes Exclusivos"
           className="mx-auto mb-6 w-32 h-32  object-cover shadow-lg"
         />

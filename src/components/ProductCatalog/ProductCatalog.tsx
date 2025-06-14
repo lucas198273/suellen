@@ -72,22 +72,24 @@ const ProductCatalog: React.FC = () => {
       description:
         "A radiant fragrance with a blend of floral and spicy notes, perfect for day or night.",
       notes: ["Saffron", "Lily", "Ambergris", "Cedar"],
-    },   {
+    },
+    {
       id: "p7",
-      name: "Aurora Sublime",
-      price: 259.0,
+      name: "Mystic Bloom",
+      price: 269.0,
       imageUrl: "/assets/img1.png",
       description:
-        "A radiant fragrance with a blend of floral and spicy notes, perfect for day or night.",
-      notes: ["Saffron", "Lily", "Ambergris", "Cedar"],
-    },   {
+        "A romantic floral fragrance with an enchanting heart and dreamy drydown.",
+      notes: ["Peony", "White Musk", "Cedar", "Bergamot"],
+    },
+    {
       id: "p8",
-      name: "Aurora Sublime",
-      price: 259.0,
+      name: "Ouro Rosa",
+      price: 289.0,
       imageUrl: "/assets/img1.png",
       description:
-        "A radiant fragrance with a blend of floral and spicy notes, perfect for day or night.",
-      notes: ["Saffron", "Lily", "Ambergris", "Cedar"],
+        "Um perfume elegante com notas frutadas e florais envolventes, finalizando com um fundo amadeirado.",
+      notes: ["Framboesa", "Rosa", "Madeira de Cedro", "Baunilha"],
     },
   ];
 
@@ -107,19 +109,21 @@ const ProductCatalog: React.FC = () => {
         >
           Catálogo de Perfumes
         </h2>
+
+        {/* Grid de perfumes */}
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
           data-aos="zoom-in"
         >
           {perfumes.map((perfume, index) => (
             <div
               key={perfume.id}
-              className="group bg-[#fdf6f0]/90 rounded-2xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-[#f43f5e]/50"
+              className="group bg-[#fdf6f0]/90 rounded-2xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-[#f43f5e]/50 flex flex-col"
               style={{ border: "1px solid #f43f5e" }}
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-48 sm:h-60 md:h-64 overflow-hidden">
                 <img
                   src={perfume.imageUrl}
                   alt={perfume.name}
@@ -130,22 +134,19 @@ const ProductCatalog: React.FC = () => {
                   style={{ backdropFilter: "blur(2px)" }}
                 />
               </div>
-              <div className="p-4 text-center">
+              <div className="p-4 text-center flex flex-col justify-between flex-grow">
                 <h3
-                  className="text-xl font-semibold mb-2 truncate"
+                  className="text-base sm:text-lg font-semibold mb-1 truncate"
                   style={{ color: "#5e1f3d" }}
                 >
                   {perfume.name}
                 </h3>
-                <p
-                  className="text-lg font-bold mb-4"
-                  style={{ color: "#3e1428" }}
-                >
+                <p className="text-sm sm:text-base font-bold mb-3" style={{ color: "#3e1428" }}>
                   R$ {perfume.price.toFixed(2)}
                 </p>
                 <button
                   onClick={() => setSelectedPerfume(perfume)}
-                  className="w-full px-4 py-2 text-white rounded-lg transition-colors"
+                  className="mt-auto px-4 py-2 text-white rounded-lg transition-colors"
                   style={{ backgroundColor: "#f43f5e" }}
                   onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#f43f5e80")}
                   onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#f43f5e")}
@@ -158,14 +159,13 @@ const ProductCatalog: React.FC = () => {
           ))}
         </div>
 
-        {/* Modal for Perfume Details */}
+        {/* Modal de detalhes do perfume */}
         {selectedPerfume && (
           <div
             className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
             data-aos="zoom-in"
             role="dialog"
             aria-labelledby="modal-title"
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
           >
             <div
               className="bg-[#fdf6f0]/95 rounded-2xl max-w-lg w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto"
