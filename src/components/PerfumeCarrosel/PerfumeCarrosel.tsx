@@ -82,7 +82,10 @@ export default function PerfumeCarrousel() {
     <section
       className="relative bg-gradient-to-r from-[#5e1f3d] to-[#fdf6f0] py-16 px-4 sm:px-6 lg:px-12 overflow-hidden"
       data-aos="fade-in"
-      style={{ backgroundImage: "url(/assets/texture.jpg)", backgroundSize: "cover" }} // Optional texture for elegance
+      style={{
+        backgroundImage: "url(/assets/texture.jpg)",
+        backgroundSize: "cover",
+      }}
     >
       <div className="max-w-7xl mx-auto">
         <h2
@@ -95,11 +98,11 @@ export default function PerfumeCarrousel() {
 
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-4 sm:gap-6">
+            <div className="flex gap-4 sm:gap-6 px-1 sm:px-0">
               {perfumes.map((perfume, index) => (
                 <div
                   key={perfume.id}
-                  className="flex-none w-[80%] sm:w-[45%] md:w-[30%] lg:w-[22%] min-w-[200px]"
+                  className="flex-none w-[85%] sm:w-[50%] md:w-[33%] lg:w-[22%] min-w-[220px] max-w-xs"
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
                 >
@@ -128,7 +131,7 @@ export default function PerfumeCarrousel() {
                         </p>
                         <p
                           className="font-bold text-sm sm:text-base"
-                          style={{ color: "#3e1428" }} // Darker wine shade
+                          style={{ color: "#3e1428" }}
                         >
                           R$ {perfume.price.toFixed(2)}
                         </p>
@@ -138,9 +141,6 @@ export default function PerfumeCarrousel() {
                           onClick={() => setSelectedPerfume(perfume)}
                           className="w-full px-4 py-2 text-sm rounded-lg transition-colors"
                           style={{ backgroundColor: "#f43f5e", color: "#fff" }}
-                          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#f43f5e80")}
-                          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#f43f5e")}
-                          aria-label={`Ver mais sobre ${perfume.name}`}
                         >
                           Ver Mais
                         </button>
@@ -150,8 +150,6 @@ export default function PerfumeCarrousel() {
                           rel="noopener noreferrer"
                           className="w-full px-4 py-2 text-sm rounded-lg transition-colors text-center"
                           style={{ backgroundColor: "#5e1f3d", color: "#fff" }}
-                          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#3e1428")}
-                          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#5e1f3d")}
                         >
                           Comprar via WhatsApp
                         </a>
@@ -163,23 +161,19 @@ export default function PerfumeCarrousel() {
             </div>
           </div>
 
-          {/* Navigation Buttons */}
+          {/* Botões de navegação */}
           <button
             onClick={() => emblaApi?.scrollPrev()}
-            className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 p-3 rounded-full shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#f43f5e]"
+            className="z-10 absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 p-3 rounded-full shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#f43f5e]"
             style={{ backgroundColor: "#5e1f3d", color: "#fff" }}
-            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#3e1428")}
-            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#5e1f3d")}
             aria-label="Slide anterior"
           >
             <ChevronLeft size={24} />
           </button>
           <button
             onClick={() => emblaApi?.scrollNext()}
-            className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 p-3 rounded-full shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#f43f5e]"
+            className="z-10 absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 p-3 rounded-full shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#f43f5e]"
             style={{ backgroundColor: "#5e1f3d", color: "#fff" }}
-            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#3e1428")}
-            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#5e1f3d")}
             aria-label="Próximo slide"
           >
             <ChevronRight size={24} />
@@ -187,25 +181,21 @@ export default function PerfumeCarrousel() {
         </div>
       </div>
 
-      {/* Modal for Perfume Details */}
+      {/* Modal */}
       {selectedPerfume && (
         <div
           className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
           data-aos="zoom-in"
           role="dialog"
           aria-labelledby="modal-title"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
         >
           <div
-            className="rounded-2xl max-w-lg w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto"
-            style={{ backgroundColor: "#fdf6f0", border: "1px solid #5e1f3d" }}
+            className="relative w-full max-w-md sm:max-w-lg max-h-[90vh] overflow-y-auto bg-[#fdf6f0] p-6 sm:p-8 rounded-2xl border"
+            style={{ borderColor: "#5e1f3d" }}
           >
             <button
               onClick={() => setSelectedPerfume(null)}
-              className="absolute top-4 right-4"
-              style={{ color: "#5e1f3d" }}
-              onMouseOver={(e) => (e.currentTarget.style.color = "#3e1428")}
-              onMouseOut={(e) => (e.currentTarget.style.color = "#5e1f3d")}
+              className="absolute top-4 right-4 text-[#5e1f3d] hover:text-[#3e1428]"
               aria-label="Fechar modal"
             >
               <X size={24} />
@@ -229,7 +219,10 @@ export default function PerfumeCarrousel() {
               <h4 className="font-semibold text-base sm:text-lg" style={{ color: "#5e1f3d" }}>
                 Notas Olfativas
               </h4>
-              <ul className="list-disc list-inside text-sm sm:text-base" style={{ color: "#5e1f3d" }}>
+              <ul
+                className="list-disc list-inside text-sm sm:text-base"
+                style={{ color: "#5e1f3d" }}
+              >
                 {selectedPerfume.notes.map((note, idx) => (
                   <li key={idx}>{note}</li>
                 ))}
@@ -244,8 +237,6 @@ export default function PerfumeCarrousel() {
               rel="noopener noreferrer"
               className="w-full block px-4 py-3 text-sm rounded-lg transition-colors text-center"
               style={{ backgroundColor: "#5e1f3d", color: "#fff" }}
-              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#3e1428")}
-              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#5e1f3d")}
             >
               Comprar via WhatsApp
             </a>
