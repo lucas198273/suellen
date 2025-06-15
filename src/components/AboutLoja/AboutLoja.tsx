@@ -1,4 +1,4 @@
-import  { useEffect } from "react";
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -16,37 +16,39 @@ export default function AboutLoja() {
       }}
     >
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-        {/* Imagem da fundadora */}
-        <div
-          className="w-full lg:w-1/2"
-          data-aos="fade-right"
-        >
+        {/* Imagem do perfume */}
+        <div className="w-full lg:w-1/2 flex justify-center" data-aos="fade-right">
           <img
-            src="/assets/imgdn.jpeg"
-            alt="Suellen, fundadora da loja"
-            className="rounded-2xl shadow-lg w-full h-auto object-cover"
+            src="/assets/fly.png"
+            alt="Perfume Hypnose"
+            className="rounded-xl shadow-lg w-full max-w-sm h-auto object-contain"
           />
         </div>
 
-        {/* Texto da seção */}
-        <div
-          className="w-full lg:w-1/2"
-          data-aos="fade-left"
-        >
+        {/* Texto sobre o perfume */}
+        <div className="w-full lg:w-1/2" data-aos="fade-left">
           <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
-            Sobre a Nossa Loja
+            Hypnose - Nº 163
           </h2>
 
           <p className="text-lg sm:text-xl mb-6">
-            Fundada por <strong>Suellen</strong>, uma apaixonada por fragrâncias autênticas e marcantes, nossa loja nasceu com o propósito de entregar perfumes que contam histórias.
+            O perfume <strong>Hypnose</strong> é uma fragrância envolvente, sofisticada e marcante. Ideal para quem deseja deixar uma impressão duradoura por onde passa.
           </p>
 
           <p className="text-lg sm:text-xl mb-6">
-            Trabalhamos exclusivamente com <strong>perfumes originais e importados</strong>, cuidadosamente selecionados para garantir qualidade, sofisticação e durabilidade.
+            Seus principais acordes combinam notas irresistíveis que proporcionam uma experiência sensorial única:
           </p>
 
-          <p className="text-lg sm:text-xl">
-            Cada fragrância disponível em nosso catálogo é fruto de uma curadoria atenta, feita com carinho para proporcionar experiências únicas a cada cliente. Seja para uso pessoal ou para presentear alguém especial, você encontra aqui o aroma perfeito para cada momento.
+          <ul className="list-disc pl-6 text-lg sm:text-xl space-y-1">
+            <li><strong>Baunilha</strong> – doce e aconchegante</li>
+            <li><strong>Floral</strong> – delicado e elegante</li>
+            <li><strong>Floral branco</strong> – suave e sofisticado</li>
+            <li><strong>Frutado</strong> – toque leve e refrescante</li>
+            <li><strong>Doce</strong> – marcante e feminino</li>
+          </ul>
+
+          <p className="text-lg sm:text-xl mt-6">
+            Um perfume perfeito para ocasiões especiais ou para quem deseja se destacar no dia a dia.
           </p>
         </div>
       </div>

@@ -11,6 +11,7 @@ import PerfumeCarrousel from './components/PerfumeCarrosel/PerfumeCarrosel';
 import SocialMediaSection from './components/SocialMidia/SocialMIdia';
 import ProductCatalog from './components/ProductCatalog/ProductCatalog';
 import ProductInfoSection from './components/ProductInfoSection/ProductInfoSection';
+import AboutLoja from './components/AboutLoja/AboutLoja';
 export default function App() {
  
 
@@ -28,10 +29,12 @@ export default function App() {
             <main className="pt-20 min-h-screen flex flex-col">
               <Hero />
               <ProductInfoSection/>
+          
               <div className="py-8">
                 <PerfumeCarrousel />
                
               </div>
+                  <AboutLoja />
               <ProductCatalog/>
                <SocialMediaSection />
             </main>
